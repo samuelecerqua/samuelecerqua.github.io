@@ -6,5 +6,7 @@
 Interested in the intersection of space technology, finance, and entrepreneurship. Long-term goal: MBA and building space technology ventures.
 
  Milan, Italy
+ 
 [Portfolio](https://samuelecerqua.github.io)
+
 [LinkedIn](https://www.linkedin.com/in/samuele-cerquaglia)
