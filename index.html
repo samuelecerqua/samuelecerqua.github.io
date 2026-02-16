@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuele Cerquaglia — Space Engineer & Aspiring Entrepreneur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F7F5F0;
+            --bg-alt: #EDEAE3;
+            --text: #1A1A1A;
+            --text-muted: #6B6560;
+            --accent: #2D4A7A;
+            --accent-light: #3D6AAA;
+            --accent-warm: #C4703F;
+            --border: #D5D0C8;
+            --white: #FFFFFF;
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAVIGATION ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(247, 245, 240, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.4s ease;
+        }
+
+        nav.scrolled {
+            border-bottom-color: var(--border);
+        }
+
+        .nav-name {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* ─── HAMBURGER ─── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 3rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.2s;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            color: var(--text);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.6s;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.8s;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .hero-meta-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+        }
+
+        .hero-meta-value {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        /* ─── SECTIONS ─── */
+        section {
+            padding: 6rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.2rem;
+        }
+
+        .section-number {
+            font-family: var(--serif);
+            font-size: 1rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        /* ─── EDUCATION ─── */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .edu-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+
+        .edu-institution {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-degree {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .edu-detail {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .edu-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.65rem;
+            border-radius: 3px;
+            margin-top: 0.8rem;
+        }
+
+        /* ─── PROJECTS ─── */
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .project-category-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.2rem 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+        }
+
+        .project-name {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
+        }
+
+        .project-institution {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-description {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 0.7rem;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            color: var(--text-muted);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        /* ─── SKILLS ─── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group h3 {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .skill-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ─── CERTIFICATIONS ─── */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .cert-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .cert-name {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-issuer {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* ─── LANGUAGES ─── */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .lang-item {
+            text-align: center;
+            padding: 1.8rem 1rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .lang-name {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .lang-level {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .lang-bar {
+            width: 60%;
+            height: 3px;
+            background: var(--bg-alt);
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .lang-bar-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 1s ease;
+        }
+
+        /* ─── INTERESTS ─── */
+        .interests-flow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .interest-pill {
+            padding: 0.6rem 1.3rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .interest-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(45, 74, 122, 0.04);
+        }
+
+        /* ─── CONTACT / FOOTER ─── */
+        .contact-section {
+            background: var(--text);
+            color: var(--bg);
+            padding: 6rem 3rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-section p {
+            color: rgba(247, 245, 240, 0.6);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: var(--bg);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.8rem 1.8rem;
+            border: 1px solid rgba(247, 245, 240, 0.25);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(247, 245, 240, 0.1);
+            font-size: 0.78rem;
+            color: rgba(247, 245, 240, 0.35);
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1.2rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .project-icon {
+                display: none;
+            }
+
+            .hero-meta {
+                gap: 1.5rem;
+            }
+
+            .contact-section {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="nav">
+        <a href="#" class="nav-name">Samuele Cerquaglia</a>
+        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="about">
+        <div class="hero-label">Space Engineering · Finance · Entrepreneurship</div>
+        <h1>Engineering the future,<br>from <em>orbit</em> to <em>market.</em></h1>
+        <p class="hero-description">
+            Engineering background, finance ambition. Academic training in orbital mechanics, satellite systems, and telecommunications. Growing focus on private markets, financial analysis, and investment research. Building skills in financial modeling, credit analysis, and Python for data-driven research.
+        </p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Currently</span>
+                <span class="hero-meta-value">MSc Space Engineering</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">University</span>
+                <span class="hero-meta-value">Politecnico di Milano</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Based in</span>
+                <span class="hero-meta-value">Milan, Italy</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Goal</span>
+                <span class="hero-meta-value">MBA & Space Ventures</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="section-header reveal">
+            <span class="section-number">01</span>
+            <h2 class="section-title">Education</h2>
+        </div>
+        <div class="education-grid">
+            <div class="edu-card reveal">
+                <div class="edu-institution">Politecnico di Milano</div>
+                <div class="edu-degree">MSc Space Engineering — Expected 2027</div>
+                <div class="edu-detail">
+                    Relevant coursework: Alternative Finance, Agile Project Management, Artificial Intelligence and Industry.
+                </div>
+            </div>
+            <div class="edu-card reveal">
+                <div class="edu-institution">Sapienza University of Rome</div>
+                <div class="edu-degree">BSc Aerospace Engineering — 109/110</div>
+                <div class="edu-detail">
+                    Thesis: Analysis of Temperature Effects on the Waveform of the SHARAD Radar System — developed MATLAB chirp signal filters and processed real NASA PDS mission data for the Mars Reconnaissance Orbiter.
+                </div>
+                <span class="edu-badge">109/110</span>
+            </div>
+            <div class="edu-card reveal">
+                <div class="edu-institution">Liceo Classico Gaio Valerio Catullo</div>
+                <div class="edu-degree">Diploma — 2017–2022</div>
+                <div class="edu-detail">
+                    Classical studies in Latin, Ancient Greek, philosophy, history and literature.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="section-header reveal">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Projects</h2>
+        </div>
+        <div class="projects-container">
+
+            <div class="project-category-label reveal">Academic</div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">Capital Asset Pricing Model – Economics & Financial Research</div>
+                    <div class="project-institution">Sapienza University of Rome</div>
+                    <div class="project-description">
+                        Led a team research project producing a 20-page analysis covering CAPM theoretical foundations, applications and critical perspectives. Performed MATLAB regression analysis on U.S.-listed companies to validate the model's predicted linear relationship between systematic risk and expected returns. Received the professor's commendation and the highest mark.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Econometrics</span>
+                        <span class="tag">Financial Modeling</span>
+                        <span class="tag">Team Lead</span>
+                    </div>
+                </div>
+                <div class="project-icon">📊</div>
+            </div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">Spacecraft Attitude Dynamics & Control Team Project</div>
+                    <div class="project-institution">Politecnico di Milano</div>
+                    <div class="project-description">
+                        Led a team project for the design and simulation of a nadir-pointing MEO GNSS microsatellite mission. Modeled horizon sensors (IRES, Leonardo), gyroscopes (STIM 300), and 3-axis reaction wheel actuators with closed-loop control systems in MATLAB/Simulink, under weight and cost constraints.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Simulink</span>
+                        <span class="tag">GNC</span>
+                        <span class="tag">Team Lead</span>
+                    </div>
+                </div>
+                <div class="project-icon">🛰️</div>
+            </div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">BSc Thesis: MRO SHARAD Telecommunications</div>
+                    <div class="project-institution">Sapienza University of Rome — Grade: 109/110</div>
+                    <div class="project-description">
+                        Developed MATLAB chirp signal filters and processed real NASA Planetary Data System (PDS) data for the Mars Reconnaissance Orbiter SHARAD shallow radar instrument.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Signal Processing</span>
+                        <span class="tag">NASA PDS</span>
+                    </div>
+                </div>
+                <div class="project-icon">🔴</div>
+            </div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">Orbital Mechanics — Mission Design Team Project</div>
+                    <div class="project-institution">Politecnico di Milano</div>
+                    <div class="project-description">
+                        Developed orbital trajectory solutions balancing technical constraints and mission objectives.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Astrodynamics</span>
+                    </div>
+                </div>
+                <div class="project-icon">🌍</div>
+            </div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">Experimental Aerodynamics Wind Tunnel Team Project</div>
+                    <div class="project-institution">Sapienza University of Rome</div>
+                    <div class="project-description">
+                        Conducted wind tunnel testing and compared results with CFD software simulations for airfoil optimization.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Wind Tunnel</span>
+                        <span class="tag">CFD</span>
+                    </div>
+                </div>
+                <div class="project-icon">💨</div>
+            </div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">XXVIII Olympiad of Logical and Mathematical Games</div>
+                    <div class="project-institution">Gioiamathesis — Accredited by the Italian Ministry of Education, 2018</div>
+                    <div class="project-description">
+                        Qualified for National Finals in the 13–14 age category.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Mathematics</span>
+                        <span class="tag">Logic</span>
+                        <span class="tag">National Finals</span>
+                    </div>
+                </div>
+                <div class="project-icon">🏅</div>
+            </div>
+
+            <div class="project-category-label reveal">Personal</div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">AI Business Optimization Tool</div>
+                    <div class="project-institution">Independent Project</div>
+                    <div class="project-description">
+                        Developed AI-driven automation solutions helping small businesses reduce missed customer calls, achieving approximately 15% cost reduction.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Business</span>
+                    </div>
+                </div>
+                <div class="project-icon">🤖</div>
+            </div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">Quadrotor Drone</div>
+                    <div class="project-institution">Independent Project</div>
+                    <div class="project-description">
+                        Designed and engineered a remotely controllable quadrotor drone, handling both hardware design and control systems.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Hardware</span>
+                        <span class="tag">Control Systems</span>
+                    </div>
+                </div>
+                <div class="project-icon">🚁</div>
+            </div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">Sleep Monitoring Wearable</div>
+                    <div class="project-institution">Independent Project</div>
+                    <div class="project-description">
+                        Developed a wearable device tracking heart rate and vital parameters during sleep to monitor and optimize sleep quality.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Wearable</span>
+                        <span class="tag">Electronics</span>
+                        <span class="tag">Health</span>
+                    </div>
+                </div>
+                <div class="project-icon">⌚</div>
+            </div>
+
+            <div class="project-card reveal">
+                <div>
+                    <div class="project-name">STEM+ Educational Initiative</div>
+                    <div class="project-institution">Co-founder — Currently on hold</div>
+                    <div class="project-description">
+                        Co-founded a nonprofit (APS) focused on STEM education. Recruited a team of 12 participants and drafted all legal documentation including articles of association and bylaws. Project paused due to team geographic dispersion.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Nonprofit</span>
+                        <span class="tag">Leadership</span>
+                        <span class="tag">STEM</span>
+                    </div>
+                </div>
+                <div class="project-icon">🎓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS & CERTIFICATIONS -->
+    <section id="skills">
+        <div class="section-header reveal">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Skills & Certifications</h2>
+        </div>
+
+        <div class="skills-grid reveal">
+            <div class="skill-group">
+                <h3>Technical</h3>
+                <ul class="skill-list">
+                    <li>MATLAB & Simulink — Advanced</li>
+                    <li>Excel — Advanced</li>
+                    <li>Python — Intermediate</li>
+                    <li>Google Workspace — Advanced</li>
+                    <li>SolidWorks — Basic</li>
+                    <li>Power BI — Basic</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3>Business & Finance</h3>
+                <ul class="skill-list">
+                    <li>Financial Analysis & Modeling</li>
+                    <li>Market Research</li>
+                    <li>Venture Evaluation</li>
+                    <li>Econometrics</li>
+                    <li>Business Automation</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3>Soft Skills</h3>
+                <ul class="skill-list">
+                    <li>Team Leadership</li>
+                    <li>Project Management</li>
+                    <li>Public Speaking</li>
+                    <li>Cross-cultural Communication</li>
+                    <li>Analytical Problem-Solving</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 3.5rem;">
+            <h3 style="font-family: var(--serif); font-size: 1.15rem; font-weight: 400; margin-bottom: 1.2rem;" class="reveal">Certifications</h3>
+            <div class="cert-grid">
+                <div class="cert-item reveal">
+                    <div class="cert-name">IELTS Academic — 8.0/9.0</div>
+                    <div class="cert-issuer">C1 Advanced · British Council</div>
+                </div>
+                <div class="cert-item reveal">
+                    <div class="cert-name">Alternative Finance</div>
+                    <div class="cert-issuer">Politecnico di Milano</div>
+                </div>
+                <div class="cert-item reveal">
+                    <div class="cert-name">Agile Project Management</div>
+                    <div class="cert-issuer">Politecnico di Milano</div>
+                </div>
+                <div class="cert-item reveal">
+                    <div class="cert-name">AI and Industry</div>
+                    <div class="cert-issuer">Università degli Studi di Brescia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section>
+        <div class="section-header reveal">
+            <span class="section-number">04</span>
+            <h2 class="section-title">Languages</h2>
+        </div>
+        <div class="lang-grid reveal">
+            <div class="lang-item">
+                <div class="lang-name">Italian</div>
+                <div class="lang-level">Native</div>
+                <div class="lang-bar"><div class="lang-bar-fill" style="width: 100%"></div></div>
+            </div>
+            <div class="lang-item">
+                <div class="lang-name">English</div>
+                <div class="lang-level">C1 — IELTS 8.0</div>
+                <div class="lang-bar"><div class="lang-bar-fill" style="width: 88%"></div></div>
+            </div>
+            <div class="lang-item">
+                <div class="lang-name">French</div>
+                <div class="lang-level">Advanced</div>
+                <div class="lang-bar"><div class="lang-bar-fill" style="width: 65%"></div></div>
+            </div>
+            <div class="lang-item">
+                <div class="lang-name">German</div>
+                <div class="lang-level">A1 — Beginner</div>
+                <div class="lang-bar"><div class="lang-bar-fill" style="width: 15%"></div></div>
+            </div>
+            <div class="lang-item">
+                <div class="lang-name">Spanish</div>
+                <div class="lang-level">A1 — Basic</div>
+                <div class="lang-bar"><div class="lang-bar-fill" style="width: 12%"></div></div>
+            </div>
+            <div class="lang-item">
+                <div class="lang-name">Ancient Greek</div>
+                <div class="lang-level">Elementary</div>
+                <div class="lang-bar"><div class="lang-bar-fill" style="width: 10%"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section>
+        <div class="section-header reveal">
+            <span class="section-number">05</span>
+            <h2 class="section-title">Interests</h2>
+        </div>
+        <div class="interests-flow reveal">
+            <span class="interest-pill">Space Economy</span>
+            <span class="interest-pill">Financial Markets & Investing</span>
+            <span class="interest-pill">Entrepreneurship</span>
+            <span class="interest-pill">Physics</span>
+            <span class="interest-pill">Mathematics</span>
+            <span class="interest-pill">Painting & Visual Arts</span>
+            <span class="interest-pill">Classical Culture</span>
+            <span class="interest-pill">Reading</span>
+            <span class="interest-pill">Emerging Markets</span>
+            <span class="interest-pill">Financial Modeling</span>
+            <span class="interest-pill">STEM Education</span>
+            <span class="interest-pill">Community Service</span>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <div class="contact-section" id="contact">
+        <h2>Let's connect.</h2>
+        <p>Open to opportunities in space economy, consulting, finance, and venture building.</p>
+        <div class="contact-links">
+            <a href="mailto:samuele.cerquaglia@mail.polimi.it" class="contact-link">PoliMi Email</a>
+            <a href="mailto:samuele.cerqua@gmail.com" class="contact-link">Gmail</a>
+            <a href="https://www.linkedin.com/in/samuele-cerquaglia" class="contact-link" target="_blank">LinkedIn</a>
+            <!-- <a href="/cv.pdf" class="contact-link" target="_blank">Download CV</a> -->
+        </div>
+        <div class="footer-bottom">
+            © 2026 Samuele Cerquaglia. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        // Nav scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('open');
+            });
+        });
+    </script>
+
+</body>
+</html>
