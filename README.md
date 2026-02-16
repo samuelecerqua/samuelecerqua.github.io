@@ -8,5 +8,4 @@ Interested in the intersection of space technology, finance, and entrepreneurshi
  Milan, Italy
  
 [Portfolio](https://samuelecerqua.github.io)
-
 [LinkedIn](https://www.linkedin.com/in/samuele-cerquaglia)
