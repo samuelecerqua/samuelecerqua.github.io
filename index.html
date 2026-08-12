@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samuele Cerquaglia — Space Engineer & Aspiring Entrepreneur</title>
+    <title>Samuele Cerquaglia, Space Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
@@ -162,7 +162,7 @@
             font-size: 1.15rem;
             line-height: 1.7;
             color: var(--text-muted);
-            max-width: 620px;
+            max-width: 640px;
             margin-bottom: 2.5rem;
             opacity: 0;
             animation: fadeUp 0.8s ease forwards 0.6s;
@@ -264,6 +264,10 @@
             line-height: 1.6;
         }
 
+        .edu-detail + .edu-detail {
+            margin-top: 0.6rem;
+        }
+
         .edu-badge {
             display: inline-block;
             background: var(--accent);
@@ -307,11 +311,31 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.05);
         }
 
+        .project-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
         .project-name {
             font-family: var(--serif);
             font-size: 1.4rem;
             margin-bottom: 0.4rem;
             letter-spacing: -0.01em;
+        }
+
+        .project-grade {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-warm);
+            border: 1px solid var(--accent-warm);
+            border-radius: 3px;
+            padding: 0.2rem 0.6rem;
+            white-space: nowrap;
         }
 
         .project-institution {
@@ -325,6 +349,10 @@
             font-size: 0.92rem;
             color: var(--text-muted);
             line-height: 1.7;
+        }
+
+        .project-description + .project-description {
+            margin-top: 0.7rem;
         }
 
         .project-tags {
@@ -343,18 +371,6 @@
             border: 1px solid var(--border);
             border-radius: 3px;
             color: var(--text-muted);
-        }
-
-        .project-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--bg-alt);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
         }
 
         /* ─── SKILLS ─── */
@@ -393,6 +409,13 @@
             font-weight: 600;
         }
 
+        .subsection-title {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 1.2rem;
+        }
+
         /* ─── CERTIFICATIONS ─── */
         .cert-grid {
             display: grid;
@@ -420,6 +443,26 @@
 
         .cert-issuer {
             font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* ─── AWARD ─── */
+        .award-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-warm);
+            border-radius: 8px;
+            padding: 1.5rem 1.8rem;
+        }
+
+        .award-name {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .award-detail {
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
 
@@ -487,6 +530,17 @@
             border-color: var(--accent);
             color: var(--accent);
             background: rgba(45, 74, 122, 0.04);
+        }
+
+        .community-note {
+            margin-top: 2.5rem;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .community-note strong {
+            font-weight: 600;
+            color: var(--text);
         }
 
         /* ─── CONTACT / FOOTER ─── */
@@ -568,6 +622,16 @@
             transform: translateY(0);
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal, .hero-label, .hero h1, .hero-description, .hero-meta {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
         /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
             nav {
@@ -604,12 +668,7 @@
             }
 
             .project-card {
-                grid-template-columns: 1fr;
                 padding: 1.5rem;
-            }
-
-            .project-icon {
-                display: none;
             }
 
             .hero-meta {
@@ -641,10 +700,13 @@
 
     <!-- HERO -->
     <header class="hero" id="about">
-        <div class="hero-label">Space Engineering · Finance · Entrepreneurship</div>
+        <div class="hero-label">Space Systems · Telecommunications · Mission Design</div>
         <h1>Engineering the future,<br>from <em>orbit</em> to <em>market.</em></h1>
         <p class="hero-description">
-            Engineering background, finance ambition. Academic training in orbital mechanics, satellite systems, and telecommunications. Growing focus on private markets, financial analysis, and investment research. Building skills in financial modeling, credit analysis, and Python for data-driven research.
+            Space Engineering MSc student at Politecnico di Milano, with a BSc in Aerospace Engineering from Sapienza (109/110). Technical focus on spacecraft systems, and telecommunications, with a growing focus extended by extracurricular coursework and independent-study.
+        </p>
+        <p class="hero-description" style="margin-top: -1.5rem;">
+            BSc thesis on NASA Mars Reconnaissance Orbiter radar data (SHARAD), supervised by Prof. P. Lombardo, Full Professor, Head of the RRSN Group and Chair of the ASI COSMO-SkyMed consulting group.
         </p>
         <div class="hero-meta">
             <div class="hero-meta-item">
@@ -656,12 +718,12 @@
                 <span class="hero-meta-value">Politecnico di Milano</span>
             </div>
             <div class="hero-meta-item">
-                <span class="hero-meta-label">Based in</span>
-                <span class="hero-meta-value">Milan, Italy</span>
+                <span class="hero-meta-label">Average grade</span>
+                <span class="hero-meta-value">28.8/30</span>
             </div>
             <div class="hero-meta-item">
-                <span class="hero-meta-label">Goal</span>
-                <span class="hero-meta-value">MBA & Space Ventures</span>
+                <span class="hero-meta-label">Based in</span>
+                <span class="hero-meta-value">Rome, Italy</span>
             </div>
         </div>
     </header>
@@ -675,24 +737,28 @@
         <div class="education-grid">
             <div class="edu-card reveal">
                 <div class="edu-institution">Politecnico di Milano</div>
-                <div class="edu-degree">MSc Space Engineering — Expected 2027</div>
+                <div class="edu-degree">MSc Space Engineering, 2025 to present</div>
                 <div class="edu-detail">
-                    Relevant coursework: Alternative Finance, Agile Project Management, Artificial Intelligence and Industry.
+                    Focus areas: Space System Engineering &amp; Operations, and telecommunications.
                 </div>
+                <div class="edu-detail">
+                    Extracurricular coursework: Agile Project Management, AI and Industry, Alternative Finance, Private Scalable Initiatives.
+                </div>
+                <span class="edu-badge">Average 28.8/30</span>
             </div>
             <div class="edu-card reveal">
                 <div class="edu-institution">Sapienza University of Rome</div>
-                <div class="edu-degree">BSc Aerospace Engineering — 109/110</div>
+                <div class="edu-degree">BSc Aerospace Engineering, 2022 to 2025</div>
                 <div class="edu-detail">
-                    Thesis: Analysis of Temperature Effects on the Waveform of the SHARAD Radar System — developed MATLAB chirp signal filters and processed real NASA PDS mission data for the Mars Reconnaissance Orbiter.
+                    Thesis: “Analysis of Temperature Effects on the Waveform of the SHARAD Radar System”, MATLAB-implemented chirp-signal filters and processing of real NASA Planetary Data System (PDS) data from the Mars Reconnaissance Orbiter.
                 </div>
-                <span class="edu-badge">109/110</span>
+                <span class="edu-badge">Final grade 109/110</span>
             </div>
             <div class="edu-card reveal">
                 <div class="edu-institution">Liceo Classico Gaio Valerio Catullo</div>
-                <div class="edu-degree">Diploma — 2017–2022</div>
+                <div class="edu-degree">Diploma of Classical Studies, 2017 to 2022</div>
                 <div class="edu-detail">
-                    Classical studies in Latin, Ancient Greek, philosophy, history and literature.
+                    Rigorous training in humanistic subjects: Latin, Ancient Greek, philosophy.
                 </div>
             </div>
         </div>
@@ -706,167 +772,187 @@
         </div>
         <div class="projects-container">
 
-            <div class="project-category-label reveal">Academic</div>
+            <div class="project-category-label reveal">Engineering and technical</div>
 
             <div class="project-card reveal">
-                <div>
-                    <div class="project-name">Capital Asset Pricing Model – Economics & Financial Research</div>
-                    <div class="project-institution">Sapienza University of Rome</div>
-                    <div class="project-description">
-                        Led a team research project producing a 20-page analysis covering CAPM theoretical foundations, applications and critical perspectives. Performed MATLAB regression analysis on U.S.-listed companies to validate the model's predicted linear relationship between systematic risk and expected returns. Received the professor's commendation and the highest mark.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">MATLAB</span>
-                        <span class="tag">Econometrics</span>
-                        <span class="tag">Financial Modeling</span>
-                        <span class="tag">Team Lead</span>
-                    </div>
+                <div class="project-head">
+                    <div class="project-name">Orbital Mechanics, Mission Design (Team)</div>
+                    <span class="project-grade">31/30 with honors</span>
                 </div>
-                
+                <div class="project-institution">Politecnico di Milano</div>
+                <div class="project-description">
+                    Designed an interplanetary mission from Mercury to Asteroid 290999 under an Earth-flyby constraint and 2030–2060 launch, flyby and arrival windows, a 3D optimization problem where brute-force minimization over the temporal discretization is out of reach for normal PCs. Solved with Particle Swarm Optimization plus a custom strategy that intercepts the pseudo-pattern in the projection of the objects' spatial coordinates at coarse discretization, isolating a specific 3D temporal zone and refining the time discretization there.
+                </div>
+                <div class="project-description">
+                    Also designed a planetary mission around Earth, modelling second-order disturbances (third-body effects from the Moon, non-sphericity of Earth) and a Repeating Ground Track, followed by analysis of unfiltered real TLE data for two uncontrolled objects (“METEOR 2-6 DE”, “COSMOS 862”). Output: a 15-page LaTeX formal report.
+                </div>
+                <div class="project-tags">
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Astrodynamics</span>
+                    <span class="tag">PSO</span>
+                    <span class="tag">TLE Analysis</span>
+                    <span class="tag">LaTeX</span>
+                </div>
             </div>
 
             <div class="project-card reveal">
-                <div>
-                    <div class="project-name">Spacecraft Attitude Dynamics & Control Team Project</div>
-                    <div class="project-institution">Politecnico di Milano</div>
-                    <div class="project-description">
-                        Led a team project for the design and simulation of a nadir-pointing MEO GNSS microsatellite mission. Modeled horizon sensors (IRES, Leonardo), gyroscopes (STIM 300), and 3-axis reaction wheel actuators with closed-loop control systems in MATLAB/Simulink, under weight and cost constraints.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">MATLAB</span>
-                        <span class="tag">Simulink</span>
-                        <span class="tag">GNC</span>
-                        <span class="tag">Team Lead</span>
-                    </div>
+                <div class="project-head">
+                    <div class="project-name">Spacecraft Attitude Dynamics &amp; Control (Team)</div>
+                    <span class="project-grade">31/30 with honors</span>
                 </div>
-                
+                <div class="project-institution">Politecnico di Milano</div>
+                <div class="project-description">
+                    Team design and MATLAB/Simulink simulation of a nadir-pointing MEO GNSS microsatellite mission, modelling errors inherent to sensors (horizon sensors, gyroscopes) and actuators (3-axis reaction wheels) with linear closed-loop control, plus algorithms for detumbling and slew manoeuvring. Output: a 21-page LaTeX formal report documenting pointing accuracy and stability results and the Monte Carlo analysis behind them.
+                </div>
+                <div class="project-tags">
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Simulink</span>
+                    <span class="tag">GNC</span>
+                    <span class="tag">Monte Carlo</span>
+                </div>
             </div>
 
             <div class="project-card reveal">
-                <div>
-                    <div class="project-name">BSc Thesis: MRO SHARAD Telecommunications</div>
-                    <div class="project-institution">Sapienza University of Rome — Grade: 109/110</div>
-                    <div class="project-description">
-                        Developed MATLAB chirp signal filters and processed real NASA Planetary Data System (PDS) data for the Mars Reconnaissance Orbiter SHARAD shallow radar instrument.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">MATLAB</span>
-                        <span class="tag">Signal Processing</span>
-                        <span class="tag">NASA PDS</span>
-                    </div>
+                <div class="project-head">
+                    <div class="project-name">Space Systems Engineering and Operations (Team)</div>
+                    <span class="project-grade">28/30</span>
                 </div>
-                
+                <div class="project-institution">Politecnico di Milano</div>
+                <div class="project-description">
+                    Led a team of 6 in the reverse-engineering and analysis of the Venus Climate Orbiter mission (VCO, also known as “Akatsuki”). The analysis is mostly top-down and system-by-system, with Telecommunications (TTMTC) and the Attitude and Orbit Control System (AOCS) as the best-presented subsystems.
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Systems Engineering</span>
+                    <span class="tag">TTMTC</span>
+                    <span class="tag">AOCS</span>
+                    <span class="tag">Team Lead</span>
+                </div>
             </div>
 
             <div class="project-card reveal">
-                <div>
-                    <div class="project-name">Orbital Mechanics — Mission Design Team Project</div>
-                    <div class="project-institution">Politecnico di Milano</div>
-                    <div class="project-description">
-                        Developed orbital trajectory solutions balancing technical constraints and mission objectives.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">MATLAB</span>
-                        <span class="tag">Astrodynamics</span>
-                    </div>
+                <div class="project-head">
+                    <div class="project-name">Experimental Aerodynamics, Wind Tunnel (Team)</div>
                 </div>
-                
+                <div class="project-institution">Sapienza University of Rome</div>
+                <div class="project-description">
+                    Conducted wind tunnel testing of airfoil profiles and benchmarked the results against CFD software simulations for airfoil optimization (eligibility exam, not graded).
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Wind Tunnel</span>
+                    <span class="tag">CFD</span>
+                </div>
             </div>
 
             <div class="project-card reveal">
-                <div>
-                    <div class="project-name">Experimental Aerodynamics Wind Tunnel Team Project</div>
-                    <div class="project-institution">Sapienza University of Rome</div>
-                    <div class="project-description">
-                        Conducted wind tunnel testing and compared results with CFD software simulations for airfoil optimization.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Wind Tunnel</span>
-                        <span class="tag">CFD</span>
-                    </div>
+                <div class="project-head">
+                    <div class="project-name">Sleep-Quality Monitoring Wearable</div>
                 </div>
-                
+                <div class="project-institution">Independent Project</div>
+                <div class="project-description">
+                    Designed a wearable device tracking heart rate, HRV and vital parameters during sleep to monitor and optimize sleep quality. Built around an ESP32-S3 mini integrating a MAX30102 PPG sensor and an MPU-6050 accelerometer over a shared I²C bus, with register-level drivers and TP4056 charging.
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Embedded</span>
+                    <span class="tag">ESP32-S3</span>
+                    <span class="tag">I²C Drivers</span>
+                    <span class="tag">Health</span>
+                </div>
             </div>
 
             <div class="project-card reveal">
-                <div>
-                    <div class="project-name">XXVIII Olympiad of Logical and Mathematical Games</div>
-                    <div class="project-institution">Gioiamathesis — Accredited by the Italian Ministry of Education, 2018</div>
-                    <div class="project-description">
-                        Qualified for National Finals in the 13–14 age category.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Mathematics</span>
-                        <span class="tag">Logic</span>
-                        <span class="tag">National Finals</span>
-                    </div>
+                <div class="project-head">
+                    <div class="project-name">Sleep-Quantity Monitoring Device</div>
                 </div>
-                
+                <div class="project-institution">Independent Project</div>
+                <div class="project-description">
+                    Designed a solution to monitor sleep hours using an ESP32S, a BH1750 light sensor, Arduino, iPhone data and a local Wi-Fi server, housed in a self-3D-printed enclosure.
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Arduino</span>
+                    <span class="tag">Sensors</span>
+                    <span class="tag">3D Printing</span>
+                </div>
             </div>
 
-            <div class="project-category-label reveal">Personal</div>
+            <div class="project-category-label reveal">Project management and finance</div>
 
             <div class="project-card reveal">
-                <div>
-                    <div class="project-name">AI Business Optimization Tool</div>
-                    <div class="project-institution">Independent Project</div>
-                    <div class="project-description">
-                        Developed AI-driven automation solutions helping small businesses reduce missed customer calls, achieving approximately 15% cost reduction.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">Automation</span>
-                        <span class="tag">Business</span>
-                    </div>
+                <div class="project-head">
+                    <div class="project-name">Project Management, Aeronautical and Space Sector</div>
+                    <span class="project-grade">30/30</span>
                 </div>
-                
-            </div>
-
-            <div class="project-card reveal">
-                <div>
-                    <div class="project-name">Quadrotor Drone</div>
-                    <div class="project-institution">Independent Project</div>
-                    <div class="project-description">
-                        Designed and engineered a remotely controllable quadrotor drone, handling both hardware design and control systems.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Hardware</span>
-                        <span class="tag">Control Systems</span>
-                    </div>
+                <div class="project-institution">Politecnico di Milano</div>
+                <div class="project-description">
+                    Applied Earned Value Management to a real aerospace program (Leonardo M-346), analysing cost and schedule performance across 5 Cost Accounts with MS Project, Excel and PowerPoint, and evaluating a contractual change request.
                 </div>
-                
+                <div class="project-tags">
+                    <span class="tag">EVM</span>
+                    <span class="tag">MS Project</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">Cost Control</span>
+                </div>
             </div>
 
             <div class="project-card reveal">
-                <div>
-                    <div class="project-name">Sleep Monitoring Wearable</div>
-                    <div class="project-institution">Independent Project</div>
-                    <div class="project-description">
-                        Developed a wearable device tracking heart rate and vital parameters during sleep to monitor and optimize sleep quality.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Wearable</span>
-                        <span class="tag">Electronics</span>
-                        <span class="tag">Health</span>
-                    </div>
+                <div class="project-head">
+                    <div class="project-name">Capital Asset Pricing Model, Financial Research</div>
+                    <span class="project-grade">31/30</span>
                 </div>
-                
+                <div class="project-institution">Sapienza University of Rome</div>
+                <div class="project-description">
+                    Team research project producing a 20-page analysis covering CAPM theoretical foundations, applications and critical perspectives, with MATLAB regression analysis on U.S.-listed companies. Received the professor's commendation and the highest mark for rigor and depth of analysis.
+                </div>
+                <div class="project-tags">
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Econometrics</span>
+                    <span class="tag">Financial Research</span>
+                </div>
+            </div>
+
+            <div class="project-category-label reveal">Personal initiatives</div>
+
+            <div class="project-card reveal">
+                <div class="project-head">
+                    <div class="project-name">AI Business Receptionist</div>
+                </div>
+                <div class="project-institution">Independent Project</div>
+                <div class="project-description">
+                    Developed an AI-driven solution to the problem of lost customer calls for small businesses, automating the appointment booking process.
+                </div>
+                <div class="project-tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Small Business</span>
+                </div>
             </div>
 
             <div class="project-card reveal">
-                <div>
+                <div class="project-head">
                     <div class="project-name">STEM+ Educational Initiative</div>
-                    <div class="project-institution">Co-founder — Currently on hold</div>
-                    <div class="project-description">
-                        Co-founded a nonprofit (APS) focused on STEM education. Recruited a team of 12 participants and drafted all legal documentation including articles of association and bylaws. Project paused due to team geographic dispersion.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Nonprofit</span>
-                        <span class="tag">Leadership</span>
-                        <span class="tag">STEM</span>
-                    </div>
                 </div>
-                
+                <div class="project-institution">Co-founder, currently on hold</div>
+                <div class="project-description">
+                    Co-founded a non-profit (APS) focused on STEM education for young people. Recruited a team of 12 participants and drafted all legal documentation, including articles of association and bylaws. Project paused due to team geographic dispersion.
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Non-profit</span>
+                    <span class="tag">Leadership</span>
+                    <span class="tag">STEM</span>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-head">
+                    <div class="project-name">Personal Long-Term Investing</div>
+                </div>
+                <div class="project-institution">Independent, since February 2022</div>
+                <div class="project-description">
+                    Long-term investing on a personal account since age 18.
+                </div>
+                <div class="project-tags">
+                    <span class="tag">Investing</span>
+                    <span class="tag">Financial Markets</span>
+                </div>
             </div>
         </div>
     </section>
@@ -875,49 +961,45 @@
     <section id="skills">
         <div class="section-header reveal">
             <span class="section-number">03</span>
-            <h2 class="section-title">Skills & Certifications</h2>
+            <h2 class="section-title">Skills, Certifications &amp; Awards</h2>
         </div>
 
         <div class="skills-grid reveal">
             <div class="skill-group">
-                <h3>Technical</h3>
+                <h3>Coding</h3>
                 <ul class="skill-list">
-                    <li>MATLAB & Simulink — Advanced</li>
-                    <li>Excel — Advanced</li>
-                    <li>Python — Intermediate</li>
-                    <li>Google Workspace — Advanced</li>
-                    <li>SolidWorks — Basic</li>
-                    <li>Power BI — Basic</li>
+                    <li>MATLAB &amp; Simulink, Advanced</li>
+                    <li>LaTeX, Advanced</li>
+                    <li>Python, Intermediate</li>
                 </ul>
             </div>
             <div class="skill-group">
-                <h3>Business & Finance</h3>
+                <h3>Project &amp; Analysis</h3>
                 <ul class="skill-list">
-                    <li>Financial Analysis & Modeling</li>
-                    <li>Market Research</li>
-                    <li>Venture Evaluation</li>
-                    <li>Econometrics</li>
-                    <li>Business Automation</li>
+                    <li>Excel, Advanced</li>
+                    <li>MS Project, Intermediate-advanced</li>
+                    <li>Power BI</li>
                 </ul>
             </div>
             <div class="skill-group">
-                <h3>Soft Skills</h3>
+                <h3>Other tools</h3>
                 <ul class="skill-list">
-                    <li>Team Leadership</li>
-                    <li>Project Management</li>
-                    <li>Public Speaking</li>
-                    <li>Cross-cultural Communication</li>
-                    <li>Analytical Problem-Solving</li>
+                    <li>Google Workspace, Advanced</li>
+                    <li>SolidWorks</li>
                 </ul>
             </div>
         </div>
 
         <div style="margin-top: 3.5rem;">
-            <h3 style="font-family: var(--serif); font-size: 1.15rem; font-weight: 400; margin-bottom: 1.2rem;" class="reveal">Certifications</h3>
+            <h3 class="subsection-title reveal">Certifications</h3>
             <div class="cert-grid">
                 <div class="cert-item reveal">
-                    <div class="cert-name">IELTS Academic — 8.0/9.0</div>
-                    <div class="cert-issuer">C1 Advanced · British Council</div>
+                    <div class="cert-name">AI and Industry</div>
+                    <div class="cert-issuer">Università degli Studi di Brescia</div>
+                </div>
+                <div class="cert-item reveal">
+                    <div class="cert-name">Start-Up Bootcamp</div>
+                    <div class="cert-issuer">Politecnico di Milano</div>
                 </div>
                 <div class="cert-item reveal">
                     <div class="cert-name">Alternative Finance</div>
@@ -928,9 +1010,21 @@
                     <div class="cert-issuer">Politecnico di Milano</div>
                 </div>
                 <div class="cert-item reveal">
-                    <div class="cert-name">AI and Industry</div>
-                    <div class="cert-issuer">Università degli Studi di Brescia</div>
+                    <div class="cert-name">Fundamentals of Financial and Management Accounting</div>
+                    <div class="cert-issuer">Politecnico di Milano</div>
                 </div>
+                <div class="cert-item reveal">
+                    <div class="cert-name">Control and Replan using Earned Value and Risk Management</div>
+                    <div class="cert-issuer">Politecnico di Milano</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3.5rem;">
+            <h3 class="subsection-title reveal">Awards &amp; competitions</h3>
+            <div class="award-item reveal">
+                <div class="award-name">XXVIII Olympiad of Logical and Mathematical Games, National Finals</div>
+                <div class="award-detail">Gioiamathesis, accredited by the Italian Ministry of Education, 2018, 13–14 age category</div>
             </div>
         </div>
     </section>
@@ -949,22 +1043,22 @@
             </div>
             <div class="lang-item">
                 <div class="lang-name">English</div>
-                <div class="lang-level">C1 — IELTS 8.0</div>
+                <div class="lang-level">C1, IELTS Academic 8.0/9.0</div>
                 <div class="lang-bar"><div class="lang-bar-fill" style="width: 88%"></div></div>
             </div>
             <div class="lang-item">
                 <div class="lang-name">French</div>
-                <div class="lang-level">Advanced</div>
-                <div class="lang-bar"><div class="lang-bar-fill" style="width: 65%"></div></div>
+                <div class="lang-level">B1, Working proficiency</div>
+                <div class="lang-bar"><div class="lang-bar-fill" style="width: 50%"></div></div>
             </div>
             <div class="lang-item">
                 <div class="lang-name">German</div>
-                <div class="lang-level">A1 — Beginner</div>
+                <div class="lang-level">A1, Beginner</div>
                 <div class="lang-bar"><div class="lang-bar-fill" style="width: 15%"></div></div>
             </div>
             <div class="lang-item">
                 <div class="lang-name">Spanish</div>
-                <div class="lang-level">A1 — Basic</div>
+                <div class="lang-level">A1, Beginner</div>
                 <div class="lang-bar"><div class="lang-bar-fill" style="width: 12%"></div></div>
             </div>
         </div>
@@ -974,32 +1068,29 @@
     <section>
         <div class="section-header reveal">
             <span class="section-number">05</span>
-            <h2 class="section-title">Interests</h2>
+            <h2 class="section-title">Interests &amp; Community</h2>
         </div>
         <div class="interests-flow reveal">
-            <span class="interest-pill">Space Economy</span>
-            <span class="interest-pill">Financial Markets & Investing</span>
-            <span class="interest-pill">Entrepreneurship</span>
             <span class="interest-pill">Physics</span>
             <span class="interest-pill">Mathematics</span>
-            <span class="interest-pill">Painting & Visual Arts</span>
+            <span class="interest-pill">Space Economy</span>
+            <span class="interest-pill">Financial Markets &amp; Investing</span>
+            <span class="interest-pill">Entrepreneurship</span>
+            <span class="interest-pill">Oil Painting &amp; Visual Arts</span>
             <span class="interest-pill">Classical Culture</span>
             <span class="interest-pill">Reading</span>
-            <span class="interest-pill">Emerging Markets</span>
-            <span class="interest-pill">Financial Modeling</span>
-            <span class="interest-pill">STEM Education</span>
-            <span class="interest-pill">Community Service</span>
         </div>
+        <p class="community-note reveal"><strong>Community:</strong> Regular blood donor with AVIS and ADSPEM.</p>
     </section>
 
     <!-- CONTACT -->
     <div class="contact-section" id="contact">
         <h2>Let's connect.</h2>
-        <p>Open to opportunities in space economy, consulting, finance, and venture building.</p>
+        <p>Open to opportunities in space systems, mission analysis, consulting and venture building.</p>
         <div class="contact-links">
+            <a href="mailto:samuele.cerqua@gmail.com" class="contact-link">Email</a>
             <a href="mailto:samuele.cerquaglia@mail.polimi.it" class="contact-link">PoliMi Email</a>
-            <a href="mailto:samuele.cerqua@gmail.com" class="contact-link">Gmail</a>
-            <a href="https://www.linkedin.com/in/samuele-cerquaglia" class="contact-link" target="_blank">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/samuele-cerquaglia" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
             <!-- <a href="/cv.pdf" class="contact-link" target="_blank">Download CV</a> -->
         </div>
         <div class="footer-bottom">
