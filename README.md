@@ -3,7 +3,7 @@
 **MSc Space Engineering** · Politecnico di Milano
 **BSc Aerospace Engineering** · Sapienza University of Rome
 
-Interested in the intersection of space technology, finance, and entrepreneurship. Long-term goal: MBA and building space technology ventures.
+Interested in the intersection of space technology, finance, and entrepreneurship.
 
  Milan, Italy
  
